@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width">
+		<title>exercise 05</title>
+	</head>
+
+	<body>
+		<form name="frmTablas" id="frmTablas" 
+			action ="03exercise.php" target="_self"
+			method="post" enctype="multipart/form-data">
+			<table width="496" border="1" cellspacing="1" cellpading="1">
+
+				<tr>
+					<td width="200" align="right">Ingrese la cantidad de columnas</td>
+					<td width="294"><input  name="numColumns" type="number" id="numColumns">
+				</tr>
+				<tr>
+					<td width="200" align="right">Ingrese la cantidad de filas</td>
+					<td width="294"><input name="numRows" id="numRows" type="number">
+					
+				</tr>
+
+				<tr>
+					<td colspan="2" align="center">
+						<input type="submit" name="btnSend" value="Send">
+						<input type="reset" name="btnreestablecer" value="Reestablecer" class="btnTomato">
+					</td>
+					<td>
+					</td>
+				</tr>
+				
+			</table>
+		</form>
+	</body>
+</html>
