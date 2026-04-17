@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="with=device-width, initial-scale=1.0">
+		<title>Compra de jocotes corona</title>
+	</head>
+	<body>
+		<h2>Una asociación de productores de jocote corona tiene como plítica<br>
+			fijar un precio inicial al kilo de su producto, el cual se clasifica en<br>
+			tipos A y B y además en tamaños 1 y 2. Cuando se realiza la venta del producto,<br>
+			ésta es de un solo tipo y tamaño, se requiere determinar cuánto recibirá un productor<br>
+			por los jocotes que entrega en un pedido, considerando lo siguiente: <br>
+			Si es de tipo A, se le cargan $ 0.20 ctvs al precio inicial cuando es de tamaño 1; <br>
+			t $ 0.30 ctvs si es de tamaño 2. Si es de tipo B, se rebajan $ 0.30 ctvs cuando <br>
+		es de tamaño 1, y $0.50 cuando es de tamaño 2.</h2>
+
+		<hr>
+		<h3>Ingrese los datos del pedido de jocotes corona</h3>
+		<form action="process.php" method="post">
+			<label name="type">Tipo: </label>
+			<select name="cmbType" id="cmbType">
+				<option value="A" selected>A</option>
+				<option value="B">B</option>
+			</select>
+
+			<hr>
+
+			<label for="size">Tamaño: </label>
+			<select name="cmbSize" id="cmbSize">
+				<option value="1" selected>1</option>
+				<option value="2">2</option> 
+			</select>
+
+			<hr>
+
+			<label for="price">Precio: </label>
+			<input type="number" name="price" id="price" step="1" min="1" required>
+			<hr>
+			<label for="kilograms">Kilos:</label>
+			<input type="number" name="kilograms" id="kilograms" min="0.1" step="0.1" max="10">
+			<hr>
+			<input type="submit" value"calculate">
+			
+		</form>
+
+	</body>
+
+	
+</html>
+
