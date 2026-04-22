@@ -1,0 +1,85 @@
+p {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+input[type=text], input[type=number], input[type=date], select, input[type=password], textarea {
+	width: 70%;
+	padding: 10px;
+	margin: 8px;
+	display: inline-block;
+	border: 1px solid;
+    box-shadow: 2px 2px 5px #DDD;
+	border-radius: 4px;
+	box-sizing: border-box; 
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-color: #BBB;
+    transition: 0.5s;
+}
+
+input:focus,
+input[type=text]:focus, input[type=number]:focus, input[type=password]:focus,
+textarea:focus, select:focus {
+    border-color: #37C000;
+    outline: 0;
+    outline: thin dotted \9;
+    transition: 0.5s;
+}
+
+input[type=text]:read-only, input[type=file]:read-only, input[type=password]:read-only, textarea:read-only {
+	cursor: not-allowed;
+	background-color: white;
+}
+
+.btnGreen {
+	width: 30%;
+	background-color: #0da612;
+	color: white;
+	padding: 14px 20px;
+	margin: 5px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: 0.5s;
+    box-shadow: 2px 2px 5px #BBB;
+}
+
+.btnTomato {
+	width: 30%;
+	background-color: rgb(222, 10, 10);
+	color: white;
+	padding: 14px 20px;
+	margin: 5px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: 0.5s;
+    box-shadow: 2px 2px 5px #BBB;
+}
+
+.btnGreen:hover {
+	background-color: #45A049;
+	transition: 0.5s;
+}
+
+.btnTomato:hover {
+	background-color: indianred;
+	transition: 0.5s;
+}
+
+table {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+    border: none;
+    background-color: #F1F1F1;
+    border-radius: 0px 0px 20px 20px;
+    box-shadow: 0px 4px 10px #AAA; 
+}
+
+h3 {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 19px;
+	color: white;
+	font-weight: bolder;
+    margin: 10px;
+}
