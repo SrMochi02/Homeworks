@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body> 
+<?php
+//Incluimos el archivo de la cabecera
+    require_once "componentes/cabecera.php";
+
+?>  
+
+<form action="confirmacion.php" method="post">
+    <table width="700" class="bordes-externos">
+        <tr>
+            <td width="97" align="right">
+                <p>Producto:</p>
+            </td>
+            <td width="23" align="left">&nsbp;</td>
+            <td width="567" align="left"> 
+                <p>
+                    <select id="producto" name="producto">
+                        <option value="">Seleccione</option>
+                        <option value="iphone">Iphone 15 - $900.00</option>
+                        <option value="samsung">Galaxy S24 - $950.00</option>
+                        <option value="redmi">Redmi Note 13 - $650.00</option>
+                    </select>
+                </p>
+            </td>
+            <td width="308" rowspan="3" align="center"> 
+                <img src="imagenes/noimagen.jpg" alt="foto_producto">                
+            </td>
+        </tr>
+        <tr>
+            <td height="104" align="right" valign="top">
+                <p>Cantidad:</p>
+            </td>
+            <td valign="top"></td>
+            <td valign="top"><input type="number" name="cantidad" id="cantidad"></td>
+        </tr>
+        <tr>
+            <td height="105" align="right" valign="top">&nsbp;</td>
+            <td valign="top"></td>
+            <td valign="top"> 
+                <button type="submit">Realizar Pedido</button>
+                <button type="button" onclick="location.reload();">Restablecer</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4"></td>
+        </tr>
+    </table>
+</form>
+
+<script type="text/javascript"> 
+    function seleccionar_producto() {
+        let seleccion = document.getElementById("producto").value;
+
+        if(seleccion == "samsung") {
+            document.getElementById("foto_producto").src = "imagenes/samsung.jpg";
+        } 
+        else if (seleccion == "iphone") 
+        {
+            document.getElementById("foto_producto").src = "imagenes/iphone.jpg";   
+        }
+        else if (seleccion == "redmi") 
+        {
+            document.getElementById("foto_producto").src = "imagenes/redmi.jpg";
+        }
+        else {
+            document.getElementById("foto_producto").src = "imagenes(noimagen.jpg)";
+        }
+    }
+</script>
+
+</body>
+</html>

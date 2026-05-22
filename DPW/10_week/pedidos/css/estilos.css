@@ -1,0 +1,106 @@
+.tblContenido {
+  border-style: solid;
+  border-width: 1px;
+}
+
+h3 {
+  line-height: 20px;
+  color: #4e6db4;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+  background-color: #ffffff;
+  line-height: 20px;
+  font-size: 14px;
+  color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input {
+  border: 1px solid #999;
+  width: 200px;
+  height: 25px;
+  color: #333333;
+  padding: 3px;
+  margin-right: 4px;
+  margin-bottom: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 5px;
+}
+
+select {
+  border: 1px solid #999;
+  width: 207px;
+  height: 33px;
+  color: #333333;
+  padding: 3px;
+  margin-right: 4px;
+  margin-bottom: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 5px;
+}
+
+input:focus,
+number:focus,
+textarea:focus,
+select:focus {
+  border-color: #09f;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 10px #8ad9ff;
+  outline: 0;
+  outline: thin dotted \9;
+  transition: 0.5s;
+}
+
+button {
+  width: auto;
+  height: 30px;
+  text-align: right;
+  font-family: Arial;
+  font-weight: bolder;
+  border-style: solid;
+  border-width: thin;
+  border-color: #93c9ff;
+
+  text-shadow: #fff 0px 1px 1px;
+  font-size: 12px;
+
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#ffffff),
+    to(#b3d9ff)
+  );
+  background: -moz-linear-gradient(bottom, #b3d9ff, #ffffff);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#B3D9FF');
+}
+
+button:hover {
+  width: auto;
+  height: 30px;
+  text-align: right;
+  font-family: Arial;
+  font-weight: bolder;
+  border-style: solid;
+  border-width: thin;
+  border-color: #93c9ff;
+
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#ffffff),
+    to(#a0ff42)
+  );
+  background: -moz-linear-gradient(bottom, #a0ff42, #ffffff);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#A0FF42');
+}
+
+.bordes-externos {
+  border-collapse: collapse; /* Combina los bordes de las celdas */
+}
+
+.bordes-externos {
+  border: 2px dashed #ccc; /* Bordes de la tabla */
+}

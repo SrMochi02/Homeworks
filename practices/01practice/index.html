@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <header class="header">
+        <h1>Inventory Register</h1>
+    </header>
+
+    <main class="principal-main">
+        <section class="section">
+
+            <div class="container">
+                <h2>Insert the products for inventory</h2>
+                <form action="process.php" method="post">
+                    
+                                <label>Name of Product</label>
+                                <input type="text" required name="productName">
+                                <label>Stock of Product</label>
+                                <input type="number"  name="stock" min="1" max="9999" step="1" required>
+                                <label>Price of Product</label>
+                                <input type="number" name="price" min="0.100" max="9999" step="0.001" required>
+                                <label>Description of Product</label>
+                                <input type="text" required name="description">
+                </form>
+
+            </div>
+
+            <div class="container">
+                <h2>Products</h2>
+                <table border="1" cellspacing="1" cellpadding="1">    
+                
+                    <tr>
+                        <th>Name</th>
+                        <th>Stock</th>
+                        <th>$ Price</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>Coke Cola 1.5lt</td>
+                        <td>2399</td>
+                        <td>1.99</td>
+                        <td>Soda</td>
+                    </tr>
+                    <tr>
+                        <td>Pastelitos canela</td>
+                        <td>366</td>
+                        <td>2.57</td>
+                        <td>Cake's canela and chocolate horned</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+
+    </footer>
+
+
+</body>
+</html>
