@@ -19,10 +19,10 @@
             <td width="97" align="right">
                 <p>Producto:</p>
             </td>
-            <td width="23" align="left">&nsbp;</td>
+            <td width="23" align="left">&nbsp;</td>
             <td width="567" align="left"> 
                 <p>
-                    <select id="producto" name="producto">
+                    <select id="producto" name="producto" onchange="seleccionar_producto();">
                         <option value="">Seleccione</option>
                         <option value="iphone">Iphone 15 - $900.00</option>
                         <option value="samsung">Galaxy S24 - $950.00</option>
@@ -31,7 +31,7 @@
                 </p>
             </td>
             <td width="308" rowspan="3" align="center"> 
-                <img src="imagenes/noimagen.jpg" alt="foto_producto">                
+                <img src="imagenes/noimagen.jpg" id="foto_producto">                
             </td>
         </tr>
         <tr>
@@ -42,7 +42,7 @@
             <td valign="top"><input type="number" name="cantidad" id="cantidad"></td>
         </tr>
         <tr>
-            <td height="105" align="right" valign="top">&nsbp;</td>
+            <td height="105" align="right" valign="top">&nbsp;</td>
             <td valign="top"></td>
             <td valign="top"> 
                 <button type="submit">Realizar Pedido</button>
