@@ -46,23 +46,14 @@
             <td valign="top"><input type="number" name="cantidad" id="cantidad"></td>
         </tr>
         <tr>
-            <td height="110" align="right" valign="top"><p>Cargador: </p></td>
-            <td valign="top"></td>
-            <td valign="top">
-                <select id="cargador" name="cargador">
-                    <option value="">Seleccione el cargador</option>
-                    <option value="normal">Cargador normal - $15</option>
-                    <option value="rapido">Cargador rapido - $20</option>
-                </select>
-            </td>
-            
-        </tr>
-        <tr>
-            <td height="115" align="right" valign="top">Descuento: </td>
-            <td valign="top"></td>
-            <td valign="top">
-                <input type="checkbox" id="descuento" name="descuento">
-                <label for="descuento"><p>10% de descuento al producto</p></label>
+            <td>Tipo de Cargador</td>
+            <td>
+                <p>
+                    <select id="cargador" name="cargador">
+                        <option value="normal">Cargador normal - $15</option>
+                        <option value="rapido">Cargador rapido - $20</option>  
+                    </select>
+                </p>
             </td>
         </tr>
         <tr>

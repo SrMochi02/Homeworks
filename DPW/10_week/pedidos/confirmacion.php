@@ -9,8 +9,6 @@ $obj_tienda = new Tienda();
 
 $obj_tienda->producto = $_POST["producto"];
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +51,15 @@ require_once "componentes/cabecera.php";
             </td>
             <td valign="middle"></td>
             <td valign="middle">
-                <button type="button" onclick="comprar();">Realizar compra</button>
+                <input type="text" name="$total_compra" readonly 
+                value="<?php echo "$ ".$obj_tienda->totalizar($_POST["cantidad"]); ?>">
+            </td>
+        </tr>
+        <tr>
+            <td height=" 35" align="right" valign="middle">&nbsp;</td>
+            <td valign="middle"></td>
+            <td valign="middle">
+                <button type="button" onclick="comprar();">Realizar Compra</button>
             </td>
         </tr>
         <tr>
@@ -62,9 +68,9 @@ require_once "componentes/cabecera.php";
     </table>
     </form>
 
-    <script type="text/javscript">
-function comprar() {
-    alert("Su compra se realizo con exito");
+    <script type="text/javascript">
+        function comprar() {
+            alert("Su compra se realizo con exito");
         }
 
     </script>

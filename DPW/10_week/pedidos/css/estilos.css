@@ -104,3 +104,9 @@ button:hover {
 .bordes-externos {
   border: 2px dashed #ccc; /* Bordes de la tabla */
 }
+/*Solucion problema de las imagenes gigantes*/
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
