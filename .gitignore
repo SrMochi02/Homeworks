@@ -1,0 +1,45 @@
+# VS Code
+.vscode/
+*.code-workspace
+
+# Dependencias de Composer
+/vendor/
+
+# Archivos de entorno
+.env
+.env.local
+.env.*.local
+
+# Archivos de base de datos
+*.sql
+*.sqlite
+*.db
+
+# Archivos de log
+*.log
+logs/
+error_log
+
+# Archivos temporales y caché
+*.tmp
+*.cache
+*.bak
+*.swp
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Node.js (si usas Tailwind/Bootstrap vía npm)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Compilados de CSS/JS (Tailwind, Bootstrap)
+public/css/
+public/js/
+dist/
+build/
+
+# Archivos de cobertura de pruebas
+coverage/
