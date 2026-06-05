@@ -8,10 +8,15 @@ class ClienteDatos
     {
         $conexion = new Conexion();
 
-        $conexion->query= "SELECT IdCliente, NombreCliente, DUI, NIT, Telefono, Direccion FROM tbl_clientes ORDER BY IdCliente DESC";
+        $conexion->query = "SELECT IdCliente, Nombre, DUI, NIT, Telefono,
+                            Direccion, Tipo, NRC, Eliminado
+                            FROM tbl_clientes
+                            WHERE Eliminado = 'N'
+                            ORDER BY IdCliente DESC";
 
         return $conexion->get_records();
     }
+
 
     private function valorNulo($valor)
     {
@@ -22,54 +27,72 @@ class ClienteDatos
     {
         $conexion = new Conexion();
 
-        $conexion->query = "INSERT INTO tbl_clientes(NombreCliente, DUI, NIT, Telefono, Direccion)
-            VALUES (:nombre, :dui, :nit, :telefono, :direccion)";
+        $conexion->query = "INSERT INTO tbl_clientes (Nombre, DUI, NIT, Telefono,
+        Direccion, Tipo, NRC, Eliminado)
+        VALUES (:nombre, :dui, :nit, :telefono, :direccion, :tipo,
+        :nrc, 'N')";
 
         return $conexion->execute_query([
-            ':nombre'   => $cliente['NombreCliente'],
+            ':nombre'   => $cliente['Nombre'],
             ':dui'      => $this->valorNulo($cliente['DUI']),
             ':nit'      => $this->valorNulo($cliente['NIT']),
             ':telefono' => $this->valorNulo($cliente['Telefono']),
-            ':direccion'=> $this->valorNulo($cliente['Direccion'])
+            ':direccion'=> $this->valorNulo($cliente['Direccion']),
+            ':tipo'     => $this->valorNulo($cliente['Tipo']),
+            ':nrc'      => $this->valorNulo($cliente['NRC'])
         ]);
     }
+
 
     public function actualizarCliente($cliente)
     {
         $conexion = new Conexion();
 
-        $conexion->query = "UPDATE tbl_clientes SET NombreCliente = :nombre, DUI = :dui,
-                            NIT = :nit, Telefono = :telefono, Direccion = :direccion
+        $conexion->query = "UPDATE tbl_clientes 
+                            SET Nombre = :nombre, 
+                                DUI = :dui,
+                                NIT = :nit, 
+                                Telefono = :telefono, 
+                                Direccion = :direccion,
+                                Tipo = :tipo, 
+                                NRC = :nrc
                             WHERE IdCliente = :idCliente";
 
         return $conexion->execute_query([
-            ':nombre'    => $cliente['NombreCliente'],
+            ':nombre'    => $cliente['Nombre'],
             ':dui'       => $this->valorNulo($cliente['DUI']),
             ':nit'       => $this->valorNulo($cliente['NIT']),
             ':telefono'  => $this->valorNulo($cliente['Telefono']),
             ':direccion' => $this->valorNulo($cliente['Direccion']),
+            ':tipo'      => $this->valorNulo($cliente['Tipo']),
+            ':nrc'       => $this->valorNulo($cliente['NRC']),
             ':idCliente' => $cliente['IdCliente']
         ]);
     }
+
 
     public function obtenerClientePorId($idCliente)
     {
         $conexion = new Conexion();
 
-        $conexion->query = "SELECT IdCliente, NombreCliente, DUI, NIT, Telefono, Direccion
+        $conexion->query = "SELECT IdCliente, Nombre, DUI, NIT, Telefono, Direccion,
+                            Tipo, NRC, Eliminado
                             FROM tbl_clientes
-                            WHERE IdCliente = :idCliente";
+                            WHERE IdCliente = :idCliente
+                            AND Eliminado = 'N'";
 
         return $conexion->get_record([
             ':idCliente' => $idCliente
         ]);
     }
 
+
     public function eliminarCliente($idCliente)
     {
         $conexion = new Conexion();
 
-        $conexion->query = "DELETE FROM tbl_clientes
+        $conexion->query = "UPDATE tbl_clientes
+                            SET Eliminado = 'S'
                             WHERE IdCliente = :idCliente";
 
         return $conexion->execute_query([
@@ -77,7 +100,8 @@ class ClienteDatos
         ]);
     }
 
-    
+
+
 }
 
 

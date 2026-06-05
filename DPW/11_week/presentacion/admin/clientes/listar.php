@@ -20,7 +20,7 @@ function mostrarValor($valor){
     <title>Listado de clientes</title>
     <link rel="stylesheet" href="../../../public/bootstrap/css/bootstrap.min.css">
 </head>
-<body class="bg-liht">
+<body class="bg-light">
     <div class="container mt-5">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h3>Administracion de clientes</h3>
@@ -43,6 +43,8 @@ function mostrarValor($valor){
                         <th>NIT</th>
                         <th>Teléfono</th>
                         <th>Direccion</th>
+                        <th>Tipo</th>
+                        <th>NRC</th>
                         <th width='180'>Acciones</th>
                     </tr>
                 </thead>
@@ -53,14 +55,17 @@ function mostrarValor($valor){
 
                             <tr>
                                 <td><?php echo mostrarValor($cliente['IdCliente']); ?></td>
-                                <td><?php echo mostrarValor($cliente['NombreCliente']); ?></td>
+                                <td><?php echo mostrarValor($cliente['Nombre']); ?></td>
                                 <td><?php echo mostrarValor($cliente['DUI'])?></td>
                                 <td><?php echo mostrarValor($cliente['NIT']);?></td>
                                 <td><?php echo mostrarValor($cliente['Telefono']);?></td>
-                                <td><?php echo mostrarValor($cliente['Direccion'])?></td>
+                                <td><?php echo mostrarValor($cliente['Direccion']);?></td>
+                                <td><?php echo mostrarValor($cliente['Tipo']);?></td>
+                                <td><?php echo mostrarValor($cliente['NRC']);?></td>
+
 
                                 <td>
-                                    <a href="editar.php?id=<?php $cliente['IdCliente'];?>" class="btn btn-warning btn-sm">Editar</a>
+                                    <a href="editar.php?id=<?= $cliente['IdCliente'];?>" class="btn btn-warning btn-sm">Editar</a>
 
                                     <a href="eliminar.php?id=<?php echo $cliente['IdCliente'];?>" class="btn btn-danger btn-sm">Eliminar</a>
                                 </td>
