@@ -116,6 +116,26 @@ class ClienteNegocio
         ];
     }
 
+    public function eliminarCliente($idCliente)
+    {
+        if (!is_numeric($idCliente) || $idCliente <= 0) {
+            return [
+                'exito' => false,
+                'mensaje' => 'El identificador del cliente no es válido.'
+            ];
+        }
+
+        $resultado = $this->clienteDatos->eliminarCliente($idCliente);
+
+        return [
+            'exito' => $resultado,
+            'mensaje' => $resultado 
+                ? 'Cliente eliminado correctamente.' 
+                : 'No se pudo eliminar el cliente.'
+        ];
+    }
+
+
 
 
 }

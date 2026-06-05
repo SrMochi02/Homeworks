@@ -65,9 +65,19 @@ class ClienteDatos
         ]);
     }
 
+    public function eliminarCliente($idCliente)
+    {
+        $conexion = new Conexion();
 
+        $conexion->query = "DELETE FROM tbl_clientes
+                            WHERE IdCliente = :idCliente";
 
+        return $conexion->execute_query([
+            ':idCliente' => $idCliente
+        ]);
+    }
 
+    
 }
 
 
