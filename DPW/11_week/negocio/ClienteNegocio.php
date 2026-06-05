@@ -20,7 +20,7 @@ class ClienteNegocio
     private function limpiarDatos($datos)
     {
         return [
-            'NombreCliente' => trim($datos['NombreCliente']),
+            'Nombre' => trim($datos['Nombre']),
             'DUI'           => isset($datos['DUI']) ? trim($datos['DUI']) : '',
             'NIT'           => isset($datos['NIT']) ? trim($datos['NIT']) : '',
             'Telefono'      => isset($datos['Telefono']) ? trim($datos['Telefono']) : '',
@@ -35,11 +35,11 @@ class ClienteNegocio
     {
         $errores = [];
 
-        if (!isset($datos['NombreCliente']) || empty(trim($datos['NombreCliente']))) {
+        if (!isset($datos['Nombre']) || empty(trim($datos['Nombre']))) {
             $errores[] = "El nombre del cliente es obligatorio.";
         }
 
-        if (isset($datos['NombreCliente']) && strlen(trim($datos['NombreCliente'])) > 255) {
+        if (isset($datos['Nombre']) && strlen(trim($datos['Nombre'])) > 255) {
             $errores[] = "El nombre del cliente no debe superar los 255 caracteres.";
         }
 

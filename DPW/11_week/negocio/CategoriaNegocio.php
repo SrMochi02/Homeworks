@@ -19,11 +19,11 @@ class CategoriaNegocio
     {
         $errores = [];
 
-        if (!isset($datos['NombreCategoria']) || empty(trim($datos['NombreCategoria']))) {
+        if (!isset($datos['Nombre']) || empty(trim($datos['Nombre']))) {
             $errores[] = "El nombre de la categoría es obligatorio.";
         }
 
-        if (strlen(trim($datos['NombreCategoria'])) > 255) {
+        if (strlen(trim($datos['Nombre'])) > 255) {
             $errores[] = "El nombre de la categoría no debe superar los 255 caracteres.";
         }
 
@@ -38,7 +38,7 @@ class CategoriaNegocio
             return ['exito' => false, 'errores' => $errores];
         }
 
-        $categoria = ['NombreCategoria' => trim($datos['NombreCategoria'])];
+        $categoria = ['Nombre' => trim($datos['Nombre'])];
         $resultado = $this->categoriaDatos->insertarCategoria($categoria);
 
         return [
@@ -69,7 +69,7 @@ class CategoriaNegocio
 
         $categoria = [
             'IdCategoria' => (int)$datos['IdCategoria'],
-            'NombreCategoria' => trim($datos['NombreCategoria'])
+            'Nombre' => trim($datos['Nombre'])
         ];
 
         $resultado = $this->categoriaDatos->actualizarCategoria($categoria);

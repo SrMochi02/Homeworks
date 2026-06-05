@@ -21,10 +21,10 @@ class MarcaNegocio
     private function validarMarca($datos)
     {
         $errores = [];
-        if (!isset($datos['NombreMarca']) || empty(trim($datos['NombreMarca']))) {
+        if (!isset($datos['Nombre']) || empty(trim($datos['Nombre']))) {
             $errores[] = "El nombre de la marca es obligatorio.";
         }
-        if (strlen(trim($datos['NombreMarca'])) > 255) {
+        if (strlen(trim($datos['Nombre'])) > 255) {
             $errores[] = "El nombre de la marca no debe superar los 255 caracteres.";
         }
         return $errores;
@@ -36,7 +36,7 @@ class MarcaNegocio
         if (!empty($errores)) {
             return ['exito' => false, 'errores' => $errores];
         }
-        $marca = ['NombreMarca' => trim($datos['NombreMarca'])];
+        $marca = ['Nombre' => trim($datos['Nombre'])];
         $resultado = $this->marcaDatos->insertarMarca($marca);
         return ['exito' => $resultado, 'mensaje' => $resultado ? 'Marca registrada correctamente.' : 'No se pudo registrar la marca.'];
     }
@@ -56,7 +56,7 @@ class MarcaNegocio
         if (!empty($errores)) {
             return ['exito' => false, 'errores' => $errores];
         }
-        $marca = ['IdMarca' => (int)$datos['IdMarca'], 'NombreMarca' => trim($datos['NombreMarca'])];
+        $marca = ['IdMarca' => (int)$datos['IdMarca'], 'Nombre' => trim($datos['Nombre'])];
         $resultado = $this->marcaDatos->actualizarMarca($marca);
         return ['exito' => $resultado, 'mensaje' => $resultado ? 'Marca actualizada correctamente.' : 'No se pudo actualizar la marca.'];
     }

@@ -10,7 +10,7 @@ class VendedorNegocio {
 
     private function validarVendedor($datos) {
         $errores=[];
-        if(empty(trim($datos['NombreVendedor']))) $errores[]="El nombre del vendedor es obligatorio.";
+        if(empty(trim($datos['Nombre']))) $errores[]="El nombre del vendedor es obligatorio.";
         if(!empty($datos['DUI']) && !preg_match('/^[0-9]{8}-?[0-9]{1}$/',$datos['DUI'])) $errores[]="Formato de DUI inválido.";
         if(!empty($datos['Telefono']) && !preg_match('/^[0-9]{4}-?[0-9]{4}$/',$datos['Telefono'])) $errores[]="Formato de teléfono inválido.";
         return $errores;

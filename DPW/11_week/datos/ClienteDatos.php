@@ -49,7 +49,7 @@ class ClienteDatos
         $conexion = new Conexion();
 
         $conexion->query = "UPDATE tbl_clientes 
-                            SET NombreCliente = :nombre, 
+                            SET Nombre = :nombre, 
                                 DUI = :dui,
                                 NIT = :nit, 
                                 Telefono = :telefono, 
@@ -59,7 +59,7 @@ class ClienteDatos
                             WHERE IdCliente = :idCliente";
 
         return $conexion->execute_query([
-            ':nombre'    => $cliente['NombreCliente'],
+            ':nombre'    => $cliente['Nombre'],
             ':dui'       => $this->valorNulo($cliente['DUI']),
             ':nit'       => $this->valorNulo($cliente['NIT']),
             ':telefono'  => $this->valorNulo($cliente['Telefono']),
@@ -75,7 +75,7 @@ class ClienteDatos
     {
         $conexion = new Conexion();
 
-        $conexion->query = "SELECT IdCliente, NombreCliente, DUI, NIT, Telefono, Direccion,
+        $conexion->query = "SELECT IdCliente, Nombre, DUI, NIT, Telefono, Direccion,
                             Tipo, NRC, Eliminado
                             FROM tbl_clientes
                             WHERE IdCliente = :idCliente
