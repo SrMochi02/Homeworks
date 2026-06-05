@@ -12,10 +12,76 @@ class ClienteNegocio
     }
 
     public function listarClientes(){
-        return $this->clienteDatos->listaClientes();
+        return $this->clienteDatos->listarClientes();
     }
 
-    
+
+
+    public function limpiarDatos($datos)
+    {
+        return 
+        [
+            'NombreCliente' => trim($datos['NombreCliente']),
+            'DUI'           => isset($datos['DUI']) ? trim($datos['DUI']) : '',
+            'NIT'           => isset($datos['NIT']) ? trim($datos['NIT']) : '',
+            'Telefono'      => isset($datos['Telefono']) ? trim($datos['Telefono']) : '',
+            'Direccion'     => isset($datos['Direccion']) ? trim($datos['Direccion']) : ''
+        ];
+    }
+
+    private function validarCliente($datos)
+    {
+        $errores = [];
+
+        if (!isset($datos['NombreCliente']) || empty(trim($datos['NombreCliente']))) {
+            $errores[] = "El nombre del cliente es obligatorio.";
+        }
+
+        if (isset($datos['NombreCliente']) && strlen(trim($datos['NombreCliente'])) > 255) {
+            $errores[] = "El nombre del cliente no debe superar los 255 caracteres.";
+        }
+
+        if (!empty($datos['DUI']) && !preg_match('/^[0-9]{8}-?[0-9]{1}$/', trim($datos['DUI']))) {
+            $errores[] = "El DUI debe tener un formato válido. Ejemplo: 12345678-9.";
+        }
+
+        if (!empty($datos['NIT']) && strlen(trim($datos['NIT'])) > 20) {
+            $errores[] = "El NIT no debe superar los 20 caracteres.";
+        }
+
+        if (!empty($datos['Telefono']) && !preg_match('/^[0-9]{4}-?[0-9]{4}$/', trim($datos['Telefono']))) {
+            $errores[] = "El teléfono debe tener un formato válido. Ejemplo: 7777-8888.";
+        }
+
+        if (!empty($datos['Direccion']) && strlen(trim($datos['Direccion'])) > 255) {
+            $errores[] = "La dirección no debe superar los 255 caracteres.";
+        }
+
+        return $errores;
+    }
+
+    public function crearCliente($datos)
+    {
+        $errores = $this->validarCliente($datos);
+
+        if (!empty($errores)) {
+            return [
+                'exito' => false,
+                'errores' => $errores
+            ];
+        }
+
+        $cliente = $this->limpiarDatos($datos);
+
+        $resultado = $this->clienteDatos->insertarCliente($cliente);
+
+        return [
+            'exito' => $resultado,
+            'mensaje' => $resultado ? 'Cliente registrado correctamente.' : 'No se pudo registrar el cliente.'
+        ];
+    }
+
+
 }
 
 ?>

@@ -56,7 +56,7 @@ class Conexion {
 
     /*Ejecutar consultas INSERT UPDATE AND DELETE*/
 
-    public function exeute_query($params = [])
+    public function execute_query($params = [])
     {
         try {
             $stmt = $this->create_connection()->prepare($this->query);

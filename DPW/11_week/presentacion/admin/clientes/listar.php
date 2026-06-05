@@ -79,6 +79,15 @@ function mostrarValor($valor){
             </table>
 
         </div>
+
+            <?php if ($mensaje === 'creado'): ?>
+            <div class="alert alert-success">Cliente registrado correctamente.</div>
+            <?php elseif ($mensaje === 'actualizado'): ?>
+            <div class="alert alert-success">Cliente actualizado correctamente.</div>
+            <?php elseif ($mensaje === 'eliminado'): ?>
+            <div class="alert alert-success">Cliente eliminado correctamente.</div>
+            <?php endif; ?>
+
     </div>
     <script src="../../../public/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
