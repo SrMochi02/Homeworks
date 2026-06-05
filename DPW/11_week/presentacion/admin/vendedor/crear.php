@@ -1,6 +1,6 @@
 <?php
 // negocio/VendedorNegocio.php
-require_once __DIR__ . '/../datos/VendedorDatos.php';
+require_once __DIR__ . '/../../../datos/VendedorDatos.php';
 
 class VendedorNegocio {
     private $vendedorDatos;

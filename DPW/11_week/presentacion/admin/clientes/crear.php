@@ -12,16 +12,21 @@ $datos = [
     'DUI' => '',
     'NIT' => '',
     'Telefono' => '',
-    'Direccion' => ''
+    'Direccion' => '',
+    'Tipo' => '',
+    'NRC' => ''
 ];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $datos = [
         'NombreCliente' => $_POST['NombreCliente'] ?? '',
-        'DUI' => $_POST['DUI'] ?? '',
-        'NIT' => $_POST['NIT'] ?? '',
-        'Telefono' => $_POST['Telefono'] ?? '',
-        'Direccion' => $_POST['Direccion'] ?? ''
+        'DUI'           => $_POST['DUI'] ?? '',
+        'NIT'           => $_POST['NIT'] ?? '',
+        'Telefono'      => $_POST['Telefono'] ?? '',
+        'Direccion'     => $_POST['Direccion'] ?? '',
+        'Tipo'          => $_POST['Tipo'] ?? '',
+        'NRC'           => $_POST['NRC'] ?? ''
+        
     ];
 
     $resultado = $clienteNegocio->crearCliente($datos);
@@ -89,6 +94,21 @@ function mostrarValor($valor)
                         <label class="form-label">Dirección</label>
                         <textarea name="Direccion" class="form-control" rows="3"></textarea>
                     </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Tipo de cliente</label>
+                        <select name="Tipo" class="form-select">
+                            <option value="">Seleccione</option>
+                            <option value="PN">Persona natural</option>
+                            <option value="PJ">Persona jurídica</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">NRC</label>
+                        <input type="text" name="NRC" class="form-control">
+                    </div>
+
 
                     <button type="submit" class="btn btn-success">Guardar cliente</button>
                     <a href="listar.php" class="btn btn-secondary">Cancelar</a>

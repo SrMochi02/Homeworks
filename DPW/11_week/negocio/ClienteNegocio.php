@@ -16,19 +16,21 @@ class ClienteNegocio
     }
 
 
-
-    public function limpiarDatos($datos)
+/*LIMPIAR DATOS*/
+    private function limpiarDatos($datos)
     {
-        return 
-        [
+        return [
             'NombreCliente' => trim($datos['NombreCliente']),
             'DUI'           => isset($datos['DUI']) ? trim($datos['DUI']) : '',
             'NIT'           => isset($datos['NIT']) ? trim($datos['NIT']) : '',
             'Telefono'      => isset($datos['Telefono']) ? trim($datos['Telefono']) : '',
-            'Direccion'     => isset($datos['Direccion']) ? trim($datos['Direccion']) : ''
+            'Direccion'     => isset($datos['Direccion']) ? trim($datos['Direccion']) : '',
+            'Tipo'          => isset($datos['Tipo']) ? trim($datos['Tipo']) : '',
+            'NRC'           => isset($datos['NRC']) ? trim($datos['NRC']) : ''
         ];
     }
 
+/*VALIDAR CLIENTE*/
     private function validarCliente($datos)
     {
         $errores = [];
@@ -57,9 +59,19 @@ class ClienteNegocio
             $errores[] = "La dirección no debe superar los 255 caracteres.";
         }
 
+        if (!empty($datos['Tipo']) && strlen(trim($datos['Tipo'])) > 2) {
+        $errores[] = "El tipo de cliente no debe superar los 2 caracteres.";
+        }
+
+        if (!empty($datos['NRC']) && strlen(trim($datos['NRC'])) > 15) {
+            $errores[] = "El NRC no debe superar los 15 caracteres.";
+        }
+
+
         return $errores;
     }
 
+    /*CREAR CLIENTE*/
     public function crearCliente($datos)
     {
         $errores = $this->validarCliente($datos);
@@ -81,6 +93,8 @@ class ClienteNegocio
         ];
     }
 
+    /*OBTENER CLIENTE POR ID*/
+
     public function obtenerClientePorId($idCliente)
     {
         if (!is_numeric($idCliente) || $idCliente <= 0) {
@@ -89,6 +103,8 @@ class ClienteNegocio
 
         return $this->clienteDatos->obtenerClientePorId($idCliente);
     }
+
+    /*ACTUALIZAR DATOS DEL CLIENTE*/
 
     public function actualizarCliente($datos)
     {
@@ -115,6 +131,8 @@ class ClienteNegocio
             'mensaje' => $resultado ? 'Cliente actualizado correctamente.' : 'No se pudo actualizar el cliente.'
         ];
     }
+
+    /*ELIMINAR CLIENTE*/
 
     public function eliminarCliente($idCliente)
     {
