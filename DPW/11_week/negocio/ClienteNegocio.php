@@ -81,6 +81,42 @@ class ClienteNegocio
         ];
     }
 
+    public function obtenerClientePorId($idCliente)
+    {
+        if (!is_numeric($idCliente) || $idCliente <= 0) {
+            return null;
+        }
+
+        return $this->clienteDatos->obtenerClientePorId($idCliente);
+    }
+
+    public function actualizarCliente($datos)
+    {
+        $errores = $this->validarCliente($datos);
+
+        if (!isset($datos['IdCliente']) || empty($datos['IdCliente'])) {
+            $errores[] = "El identificador del cliente es obligatorio.";
+        }
+
+        if (!empty($errores)) {
+            return [
+                'exito' => false,
+                'errores' => $errores
+            ];
+        }
+
+        $cliente = $this->limpiarDatos($datos);
+        $cliente['IdCliente'] = (int) $datos['IdCliente'];
+
+        $resultado = $this->clienteDatos->actualizarCliente($cliente);
+
+        return [
+            'exito' => $resultado,
+            'mensaje' => $resultado ? 'Cliente actualizado correctamente.' : 'No se pudo actualizar el cliente.'
+        ];
+    }
+
+
 
 }
 
